@@ -65,8 +65,8 @@
     @break
 
     @case('modal')
-        <a href="#" {{ $attributes->merge(['class' => 'btn btn-info btn-sm']) }} data-toggle="modal"
-            data-target="#modal-simple{{ $id }}">
+        <a href="#" {{ $attributes->merge(['class' => 'btn btn-info btn-sm']) }} data-bs-toggle="modal"
+            data-bs-target="#modal-simple{{ $id }}">
             @if($icon === false)
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
@@ -83,8 +83,8 @@
     @break
 
     @case('modal-create')
-        <button {{ $attributes->merge(['class' => 'btn btn-dark mb-2']) }} data-toggle="modal"
-            data-target="#modal-simple{{ $id }}">
+        <button {{ $attributes->merge(['class' => 'btn btn-dark mb-2']) }} data-bs-toggle="modal"
+            data-bs-target="#modal-simple{{ $id }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                 class="icon icon-tabler icons-tabler-outline icon-tabler-circle-plus">

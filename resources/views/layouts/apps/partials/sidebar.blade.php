@@ -14,7 +14,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('apps.dashboard') ? 'text-cyan' : '' }}"
                             href="{{ route('apps.dashboard') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-tabler"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -36,7 +36,7 @@
                 @can('categories-access')
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -56,7 +56,7 @@
                 @can('suppliers-access')
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck-delivery"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -76,7 +76,7 @@
                 @can('products-access')
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -96,7 +96,7 @@
                     <div class="hr-text hr-text-left ms-2 mb-2 mt-2">Management Stok</div>
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-database-import" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -122,7 +122,7 @@
                 @can('transactions-access')
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-database-export" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
@@ -144,7 +144,7 @@
                 @can('orders-access')
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-database"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -167,9 +167,9 @@
                 @endcanany
                 @can('permissions-access')
                     <li class="nav-item ">
-                        <a class="nav-link"
-                            href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                        <a class="nav-link {{ Route::is('apps.permissions*') ? 'text-cyan' : '' }}"
+                            href="{{ route('apps.permissions.index') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +189,7 @@
                 @can('roles-access')
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -208,7 +208,7 @@
                 @can('users-access')
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -228,7 +228,7 @@
                     <div class="hr-text hr-text-left ms-2 mb-2 mt-2">Laporan</div>
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
