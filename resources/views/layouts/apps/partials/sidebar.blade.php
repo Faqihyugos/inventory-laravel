@@ -121,7 +121,7 @@
                 @endcanany
                 @can('transactions-access')
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link {{ Route::is('apps.transaction') ? 'text-cyan' : '' }}" href="{{ route('apps.transaction') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-database-export" width="24" height="24"
@@ -143,7 +143,7 @@
                 @endcan
                 @can('orders-access')
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link {{ Route::is('apps.orders*') ? 'text-cyan' : '' }}" href="{{ route('apps.orders.index') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-database"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"

@@ -9,6 +9,8 @@ use App\Http\Controllers\Apps\CategoryController;
 use App\Http\Controllers\Apps\SupplierController;
 use App\Http\Controllers\Apps\ProductController;
 use App\Http\Controllers\Apps\StockController;
+use App\Http\Controllers\Apps\TransactionController;
+use App\Http\Controllers\Apps\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,4 +36,8 @@ Route::group(['prefix' => 'apps', 'as' => 'apps.', 'middleware' => ['auth']], fu
         Route::get('/', 'index')->name('index');
         Route::post('/{product}', 'store')->name('store');
     });
+    // transactions
+    Route::get('/transactions', TransactionController::class)->name('transaction');
+    // orders
+    Route::resource('orders', OrderController::class);
 });
