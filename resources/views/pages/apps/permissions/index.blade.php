@@ -58,7 +58,11 @@
                     </tbody>
                 </x-table>
             </x-card-action>
-            <div class="d-flex justify-content-end mt-2">{{ $permissions->links() }}</div>
+            <div class="d-none flex-sm-fill d-sm-flex align-items-center justify-content-sm-end mt-2">
+                <div>
+                    {{ $permissions->links('vendor.pagination.custom') }}
+                </div>
+            </div>
         </div>
          @can('permissions-create')
             <div class="col-12 col-lg-4">

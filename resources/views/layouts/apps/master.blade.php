@@ -25,20 +25,29 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
     <!-- Tabler Core -->
-    <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" />
+    <!-- <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" /> -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css" />
 
     <!-- Tabler Plugins -->
-    <link href="{{ asset('dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-flags.min.css" />
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-payments.min.css" />
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-social.min.css" />
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-vendors.min.css" />
     <link href="{{ asset('dist/libs/selectize/dist/css/selectize.css') }}" rel="stylesheet" />
 
 
     @stack('css')
 </head>
 
-<body class="antialiased" style="font-family: oswald">
+<body class="antialiased" style="font-family: 'Plus Jakarta Sans', sans-serif;">
     <!-- Sidebar -->
     @include('layouts.apps.partials.sidebar')
     <div class="page">
@@ -64,9 +73,8 @@
 
 
     <!-- Tabler Core -->
-    <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
-    <script
-  src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js">
+    <!-- <script src="{{ asset('dist/js/tabler.min.js') }}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js">
 </script>
 
     <!-- SweetAlert -->
