@@ -43,7 +43,7 @@ class CartController extends Controller
             ]);
 
             // render view
-            return redirect(route('pages.web.carts.index'))->with('toast_success', 'Produk berhasil ditambahkan keranjang');
+            return redirect(route('cart.index'))->with('toast_success', 'Produk berhasil ditambahkan keranjang');
         }
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Apps;
 
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use App\Models\Stock;
 use App\Models\Product;
@@ -158,7 +158,7 @@ class ReportController extends Controller implements HasMiddleware
         $first_stock = $this->getFirstStock($from_date);
 
         // load pdf view
-        $pdf = PDF::loadView('pages.apps.reports.download', compact('from_date', 'to_date', 'reports', 'first_stock'))->setPaper('a4', 'landscape');
+        $pdf = Pdf::loadView('pages.apps.reports.download', compact('from_date', 'to_date', 'reports', 'first_stock'))->setPaper('a4', 'landscape');
 
         // download pdf
         return $pdf->download('Laporan - '.Carbon::parse($from_date)->format('d M Y').' - '.Carbon::parse($to_date)->format('d M Y').'.pdf');

@@ -93,12 +93,12 @@
                     <td class="text-center">Stok awal</td>
                     <td class="text-center">-</td>
                     <td class="text-center">
-                        {{ count($first_stock) > 0 ? $first_stock[$report->id]['stok'] : 0 }}
+                        {{ isset($first_stock[$report->id]) ? $first_stock[$report->id]['stok'] : 0 }}
                     </td>
                 </tr>
                 @php
                     $total_quantity[$report->product_id] = 0;
-                    $total_stock[$report->product_id] = count($first_stock) > 0 ? $first_stock[$report->id]['stok'] : 0;
+                    $total_stock[$report->product_id] = isset($first_stock[$report->id]) ? $first_stock[$report->id]['stok'] : 0;
                 @endphp
                 @foreach ($report->stocks as $index => $stock)
                     @php

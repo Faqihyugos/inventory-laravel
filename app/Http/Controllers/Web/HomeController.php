@@ -17,7 +17,7 @@ class HomeController extends Controller
         // get all products data with pagination
         $products = Product::with(['category', 'supplier', 'stock' => function($query){
             $query->selectRaw("product_id, SUM(CASE WHEN type = 'in' THEN quantity ELSE quantity*-1 END) as stock")
-            ->groupBy('product_id', 'created_at');
+            ->groupBy('product_id');
         }])->search('name')->latest()->paginate(9)->withQueryString();
 
         // get all categories data with pagination
