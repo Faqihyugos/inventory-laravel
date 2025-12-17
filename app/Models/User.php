@@ -66,4 +66,9 @@ class User extends Authenticatable
             get: fn ($value) => $value ? asset('storage/avatars/' . $value) : null,
         );
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

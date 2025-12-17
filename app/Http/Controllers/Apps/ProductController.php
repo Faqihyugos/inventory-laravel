@@ -23,7 +23,7 @@ class ProductController extends Controller implements HasMiddleware
     /**
      * path productss image
      */
-    private $path = 'public/products/';
+    private $path = 'products';
 
     /**
      * middleware
@@ -71,7 +71,7 @@ class ProductController extends Controller implements HasMiddleware
     public function store(ProductRequest $request)
     {
        // call trait upload image
-       $image = $this->uploadImage($request, $this->path);
+       $fileName = $this->uploadImage($request, $this->path);
 
        // create product data
        Product::create([
@@ -80,7 +80,7 @@ class ProductController extends Controller implements HasMiddleware
            'supplier_id' => $request->supplier_id,
            'description' => $request->description,
            'unit' => $request->unit,
-           'image' => $image->hashName(),
+           'image' => $fileName,
        ]);
 
        // render view
@@ -108,12 +108,13 @@ class ProductController extends Controller implements HasMiddleware
     public function update(ProductRequest $request, Product $product)
     {
         // call trait upload image
-        $image = $this->uploadImage($request, $this->path);
+        $fileName = $this->uploadImage($request, $this->path);
 
         // check when user send request image
-        if($request->file('image'))
-            // call trait update image
-            $this->updateImage($this->path, $product, $image->hashName());
+        if ($fileName) {
+            $this->deleteImage($this->path, $product->image);
+            $product->image = $fileName;
+        }
 
         // update product data
         $product->update([
@@ -139,7 +140,7 @@ class ProductController extends Controller implements HasMiddleware
        // check when delete product data success
        if($success)
            // delete product data
-           Storage::disk('local')->delete($this->path. basename($product->image));
+           $this->deleteImage($this->path, $product->image);
 
        // render view
        return back()->with('toast_success', 'Data berhasil dihapus');

@@ -1,30 +1,26 @@
 <?php
-
 namespace App\Traits;
+
 use Illuminate\Support\Facades\Storage;
 
 trait HasImage
 {
-    // handle upload image 
-    public function uploadImage($request, $path)
+    public function uploadImage($request, string $path): ?string
     {
-        $image = null;
-
-        if($request->file('image')){
-            $image = $request->file('image');
-            $image->storeAs($path, $image->hashName());
+        if (!$request->hasFile('image')) {
+            return null;
         }
 
-        return $image;
+        $file = $request->file('image');
+        $file->storeAs($path, $file->hashName(), 'public');
+
+        return $file->hashName();
     }
 
-    // handle update image
-    public function updateImage($path, $model, $name)
+    public function deleteImage(string $path, ?string $image): void
     {
-        Storage::disk('local')->delete($path, basename($model->image));
-
-        $model->update(['image' => $name]);
-
-        return $model;
+        if ($image) {
+            Storage::disk('public')->delete($path . '/' . $image);
+        }
     }
 }

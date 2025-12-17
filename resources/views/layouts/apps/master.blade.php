@@ -47,7 +47,7 @@
     @stack('css')
 </head>
 
-<body class="antialiased" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+<body class="antialiased" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">
     <!-- Sidebar -->
     @include('layouts.apps.partials.sidebar')
     <div class="page">

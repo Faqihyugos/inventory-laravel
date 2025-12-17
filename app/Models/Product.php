@@ -6,6 +6,7 @@ use App\Traits\HasScope;
 use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Product extends Model
 {
@@ -15,7 +16,7 @@ class Product extends Model
         'category_id', 'supplier_id', 'name', 'slug', 'description', 'quantity', 'image', 'unit'
     ];
 
-    protected function image() : Attribute
+    protected function image(): Attribute
     {
         return Attribute::make(
             get: fn ($value) => $value ? asset('storage/products/' . $value) : null,

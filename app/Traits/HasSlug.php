@@ -7,10 +7,14 @@ use Illuminate\Support\Str;
 
 trait HasSlug
 {
-    public static function BootHasSlug()
+    public static function bootHasSlug()
     {
-        static::creating(function ($model) {
-            if(Schema::hasColumn($model->getTable(), 'slug')){
+        static::saving(function ($model) {
+            if (
+                Schema::hasColumn($model->getTable(), 'slug') &&
+                empty($model->slug) &&
+                !empty($model->name)
+            ) {
                 $model->slug = Str::slug($model->name);
             }
         });
