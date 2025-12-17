@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Traits;
+use \Illuminate\Database\Eloquent\Builder;
 
 trait HasScope
 {
-    public function scopeSearch(string $query, string $column)
+
+    public function scopeSearch(Builder $query, string $column)
     {
-        return $query->when(request()->search, function($search) use ($column){
-            $search->where($column, 'like', '%'. request()->search . '%');
+        $query->when(request()->search, function (Builder $q) use ($column) {
+            $q->where($column, 'like', '%'. request()->search . '%');
         });
+
+        return $query;
     }
 }
