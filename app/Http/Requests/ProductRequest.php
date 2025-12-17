@@ -32,7 +32,7 @@ class ProductRequest extends FormRequest
             ];
         elseif($this->method() === 'PUT')
             return [
-                'name' => 'required','unique:products,name'.$this->product->id,
+                'name' => 'required|unique:products,name,'.$this->product->id,
                 'image' => 'mimes:png,jpg,jpeg|max:2048',
                 'category_id' => 'required',
                 'supplier_id' => 'required',

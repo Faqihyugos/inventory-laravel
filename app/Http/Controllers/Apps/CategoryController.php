@@ -20,7 +20,7 @@ class CategoryController extends Controller implements HasMiddleware
     /**
      * path categories image
      */
-    private $path = 'public/categories/';
+    private $path = 'categories';
 
     /**
      * middleware
@@ -62,12 +62,12 @@ class CategoryController extends Controller implements HasMiddleware
     public function store(CategoryRequest $request)
     {
         // call trait upload image
-        $image = $this->uploadImage($request, $this->path);
+        $fileName = $this->uploadImage($request, $this->path);
 
         // create category data
         Category::create([
             'name' => $request->name,
-            'image' => $image->hashName(),
+            'image' => $fileName,
         ]);
 
         // render view
@@ -89,12 +89,13 @@ class CategoryController extends Controller implements HasMiddleware
     public function update(CategoryRequest $request, Category $category)
     {
         // call trait upload image
-        $image = $this->uploadImage($request, $this->path);
+        $fileName = $this->uploadImage($request, $this->path);
 
         // check when user send request image
-        if($request->file('image'))
-            // call trait update image
-            $this->updateImage($this->path, $category, $image->hashName());
+        if ($fileName) {
+            $this->deleteImage($this->path, $category->image);
+            $category->image = $fileName;
+        }
 
         // update category data
         $category->update(['name' => $request->name]);
@@ -114,7 +115,7 @@ class CategoryController extends Controller implements HasMiddleware
         // check when delete category data success
         if($success)
             // delete category data
-            Storage::disk('local')->delete($this->path. basename($category->image));
+            $this->deleteImage($this->path, $category->image);
 
         // render view
         return back()->with('toast_success', 'Data berhasil dihapus');

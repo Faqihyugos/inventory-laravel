@@ -29,7 +29,7 @@ class CategoryRequest extends FormRequest
             ];
         elseif($this->method() === 'PUT')
             return [
-                'name' => 'required|unique:categories,name'. $this->category->id,
+                'name' => 'required|unique:categories,name,' . $this->category->id,
                 'image' => 'mimes:png,jpg,jpeg|max:2048'
             ];
     }
