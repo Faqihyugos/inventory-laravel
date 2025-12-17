@@ -75,7 +75,7 @@
                 @endcan
                 @can('products-access')
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link {{ Route::is('apps.products*') }}" href="{{ route('apps.products.index') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25"
@@ -95,7 +95,7 @@
                 @can('stocks-access')
                     <div class="hr-text hr-text-left ms-2 mb-2 mt-2">Management Stok</div>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link {{ Route::is('apps.stocks*') ? 'text-cyan' : '' }}" href="{{ route('apps.stocks.index') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block me-1">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-database-import" width="24" height="24"

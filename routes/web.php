@@ -7,6 +7,8 @@ use App\Http\Controllers\Apps\RoleController;
 use App\Http\Controllers\Apps\UserController;
 use App\Http\Controllers\Apps\CategoryController;
 use App\Http\Controllers\Apps\SupplierController;
+use App\Http\Controllers\Apps\ProductController;
+use App\Http\Controllers\Apps\StockController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +25,13 @@ Route::group(['prefix' => 'apps', 'as' => 'apps.', 'middleware' => ['auth']], fu
     Route::resource('users', UserController::class)->only(['index', 'update', 'destroy']);
     // categories
     Route::resource('categories', CategoryController::class);
-     // suppliers
+    // suppliers
     Route::resource('suppliers', SupplierController::class)->except(['show']);
+    // products
+    Route::resource('products', ProductController::class)->except(['show']);
+    // stocks
+    Route::controller(StockController::class)->as('stocks.')->prefix('stocks')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::post('/{product}', 'store')->name('store');
+    });
 });
