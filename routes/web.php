@@ -6,6 +6,7 @@ use App\Http\Controllers\Apps\PermissionController;
 use App\Http\Controllers\Apps\RoleController;
 use App\Http\Controllers\Apps\UserController;
 use App\Http\Controllers\Apps\CategoryController;
+use App\Http\Controllers\Apps\SupplierController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,4 +23,6 @@ Route::group(['prefix' => 'apps', 'as' => 'apps.', 'middleware' => ['auth']], fu
     Route::resource('users', UserController::class)->only(['index', 'update', 'destroy']);
     // categories
     Route::resource('categories', CategoryController::class);
+     // suppliers
+    Route::resource('suppliers', SupplierController::class)->except(['show']);
 });
